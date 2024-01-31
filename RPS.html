@@ -6,9 +6,18 @@
 </head>
 <body>
   <script>
-    // Your JavaScript goes here!
-    
-    console.log("Hello World!")
+      function playRound(playerSelection, computerSelection) {
+      (playerSelection === "rock" && computerSelection==="scissors") ? console.log('rock wins'):
+      (playerSelection === "scissors" && computerSelection==="paper") ? console.log('scissors wins'):
+      (playerSelection === "paper" && computerSelection==="rock") ? console.log('paper wins'):
+      (playerSelection === computerSelection) ? console.log('Tie'):
+      console.log('Lose');
+     }
+
+    const playerSelection = prompt("Enter the value in lowercase","");
+    const computerSelection = getComputerChoice();
+
+    console.log(playRound(playerSelection, computerSelection));
   </script>
 </body>
 </html>

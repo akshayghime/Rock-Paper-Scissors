@@ -6,18 +6,52 @@
 </head>
 <body>
   <script>
-      function playRound(playerSelection, computerSelection) {
-      (playerSelection === "rock" && computerSelection==="scissors") ? console.log('rock wins'):
-      (playerSelection === "scissors" && computerSelection==="paper") ? console.log('scissors wins'):
-      (playerSelection === "paper" && computerSelection==="rock") ? console.log('paper wins'):
-      (playerSelection === computerSelection) ? console.log('Tie'):
-      console.log('Lose');
-     }
-
     const playerSelection = prompt("Enter the value in lowercase","");
-    const computerSelection = getComputerChoice();
+    
+    const computerSelection = () =>{
+      randomNumber=Math.floor(Math.random()*3);
+      switch(randomNumber){
+        case 0:
+          return 'rock';
+        case 1:
+          return 'paper';
+        case 2:
+          return 'scissor';
+      }
+    }
 
-    console.log(playRound(playerSelection, computerSelection));
+    const playRound = (playerSelection, computerSelection) => {
+      if (playerSelection===computerSelection){
+        return 'This game is a tie';
+      }
+      
+      if(playerSelection==='rock'){
+        if(computerSelection==='paper'){
+          return 'Sorry , your computer won';
+        } else{
+          return 'Congratulations you won';
+        }
+      }
+      if(playerSelection==='paper'){
+        if(computerSelection==='scissors'){
+          return 'Sorry , your computer won';
+        } else{
+          return 'Congratulations you won';
+        }
+      }
+
+      if(playerSelection==='scissors'){
+        if(computerSelection==='rock'){
+          return 'Sorry , your computer won';
+        } else{
+          return 'Congratulations you won';
+        }
+      }
+    }
+   console.log(playerSelection);
+   console.log(computerSelection());
+
+   console.log(playRound(playerSelection, computerSelection()));
   </script>
 </body>
 </html>
